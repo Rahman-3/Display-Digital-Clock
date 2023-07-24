@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Easy Tutorials</title>
+    <link rel="stylesheet" href="mutu.css">
+</head>
+<body>
+
+<div class="card">
+    <div class="search">
+        <input type="text" placeholder="enter city name" spellcheck="false">
+        <button><img src="images/search.png" alt="Search"></button>
+    </div>
+    <div class="weather">
+        <img src="images/weather.png" class="weather-icon">
+        <h1 class="tem">22°C</h1>
+        <h2 class="city">Dhaka</h2>
+        <div class="details">
+            <div class="col">
+                <img src="images/humidity.png">
+                <p class="humidity">50%</p>
+                <p>humidity</p>
+            </div>
+            <div class="col">
+                <img src="images/wind.png">
+                <p class="wind">15km/h</p>
+                <p>wind speed</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+<script>
+
+    const apikey="78c9743b07ed00642a9ecfed7c85af12";
+    const apiUrl="https://api.openweathermap.org/data/2.5 units=metric&q=dhaka";
+
+    async function checkweather(){
+    const response=await fetch(apiUrl+'&appid=${apikey}');
+    var data=await respond.json();
+
+    console.log(data);
+
+    document.querySelector(".city").innerHTML=data.main;
+    document.querySelector(".temp").innerHTML=data.main.temp;
+    document.querySelector(".humidity").innerHTML=data.main.humidity;
+    document.querySelector(".wind").innerHTML=data.wind.speed;
+
+    }
+
+    </script>
+    checkweather();
